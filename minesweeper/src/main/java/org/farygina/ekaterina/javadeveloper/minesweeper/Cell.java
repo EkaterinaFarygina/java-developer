@@ -1,6 +1,6 @@
 package org.farygina.ekaterina.javadeveloper.minesweeper;
 
-public class Cell {
+class Cell {
     private CellState state;
     private final int x;
     private final int y;

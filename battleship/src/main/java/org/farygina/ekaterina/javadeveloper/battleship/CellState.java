@@ -1,6 +1,6 @@
 package org.farygina.ekaterina.javadeveloper.battleship;
 
-public enum CellState {
+enum CellState {
     FOG("~"),
     SHIP("O"),
     SHIP_HIT("X"),

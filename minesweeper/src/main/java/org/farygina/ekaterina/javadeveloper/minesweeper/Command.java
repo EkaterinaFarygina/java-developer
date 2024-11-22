@@ -1,6 +1,6 @@
 package org.farygina.ekaterina.javadeveloper.minesweeper;
 
-public enum Command {
+enum Command {
     FREE,
     MINE;
 }

@@ -2,7 +2,7 @@ package org.farygina.ekaterina.javadeveloper.minesweeper;
 
 import java.util.Scanner;
 
-public class InputScanner {
+class InputScanner {
     private final Scanner scanner;
 
     InputScanner() {

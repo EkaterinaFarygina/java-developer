@@ -1,6 +1,6 @@
 package org.farygina.ekaterina.javadeveloper.minesweeper;
 
-public enum CellState {
+enum CellState {
     MARK("*"),
     EXPLORED_FREE("/"),
     EMPTY(".");

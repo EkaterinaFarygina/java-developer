@@ -1,6 +1,6 @@
 package org.farygina.ekaterina.javadeveloper.battleship;
 
-public class Board {
+class Board {
     private final Cell[][] cells = new Cell[10][10];
     private boolean isGameOn;
 
@@ -136,7 +136,7 @@ public class Board {
         int[] coordinate = parseCoordinate(position);
         int x = coordinate[0];
         int y = coordinate[1];
-        CellState state = cells[y][x].getState();
+        var state = cells[y][x].getState();
         switch(state) {
             case FOG -> {
                 System.out.println("You missed!\n");
@@ -161,7 +161,7 @@ public class Board {
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
+        var builder = new StringBuilder();
         builder.append("  1 2 3 4 5 6 7 8 9 10\n");
         for (int i = 0; i < cells.length; i++) {
             builder.append((char) (65 + i));

@@ -1,6 +1,6 @@
 package org.farygina.ekaterina.javadeveloper.battleship;
 
-public class Cell {
+class Cell {
     private CellState state;
 
     Cell() {

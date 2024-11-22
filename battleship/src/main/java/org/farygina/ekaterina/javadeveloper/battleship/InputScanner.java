@@ -2,7 +2,7 @@ package org.farygina.ekaterina.javadeveloper.battleship;
 
 import java.util.Scanner;
 
-public class InputScanner {
+class InputScanner {
     private final Scanner scanner;
 
     InputScanner(Scanner scanner) {

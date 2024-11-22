@@ -38,9 +38,9 @@ public class MineField {
     }
 
     boolean putMine() {
-        Random random = new Random();
-        int randomY = random.nextInt(9);
-        int randomX = random.nextInt(9);
+        var random = new Random();
+        var randomY = random.nextInt(9);
+        var randomX = random.nextInt(9);
         if (!cells[randomY][randomX].isMine()) {
             cells[randomY][randomX].setMine(true);
             return true;
@@ -58,7 +58,7 @@ public class MineField {
     }
 
     void calculateMinesAroundCell(int x, int y) {
-        int minesCount = 0;
+        var minesCount = 0;
         for (int i = Math.max(y - 1, 0); i <= Math.min(y + 1, this.cells.length - 1); i++) {
             for (int j = Math.max(x - 1, 0); j <= Math.min(x + 1, this.cells[y].length - 1); j++) {
                 if (i != y || j != x) {
@@ -73,7 +73,7 @@ public class MineField {
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
+        var builder = new StringBuilder();
         builder.append(" |123456789|\n");
         builder.append("-|---------|\n");
         for (int i = 0; i < this.cells.length; i++) {
@@ -99,7 +99,7 @@ public class MineField {
     }
 
     private void printFailedGame() {
-        StringBuilder builder = new StringBuilder();
+        var builder = new StringBuilder();
         builder.append(" |123456789|\n");
         builder.append("-|---------|\n");
         for (int i = 0; i < this.cells.length; i++) {
@@ -129,10 +129,10 @@ public class MineField {
         Queue<Cell> queue = new ArrayDeque<>();
         queue.add(cell);
         while (!queue.isEmpty()) {
-            Cell current = queue.poll();
+            var current = queue.poll();
             if (current.getMinesAround() == 0) {
-                int x = current.getX();
-                int y = current.getY();
+                var x = current.getX();
+                var y = current.getY();
                 for (int i = Math.max(y - 1, 0); i <= Math.min(y + 1, this.cells.length - 1); i++) {
                     for (int j = Math.max(x - 1, 0); j <= Math.min(x + 1, this.cells[y].length - 1); j++) {
                         if (!this.cells[i][j].isOpen()) {
@@ -162,15 +162,15 @@ public class MineField {
     }
 
     public void gaming() {
-        int marks = 0;
-        boolean isFirstFree = true;
+        var marks = 0;
+        var isFirstFree = true;
         System.out.println(this);
         while (this.mines != 0 && marks != this.mines) {
             var input = this.scanner.readCoordinatesAndCommand();
             var x = Integer.parseInt(input[0]);
             var y = Integer.parseInt(input[1]);
-            Command command = Command.valueOf(input[2].toUpperCase());
-            Cell cell = this.cells[y][x];
+            var command = Command.valueOf(input[2].toUpperCase());
+            var cell = this.cells[y][x];
             if (cell.isOpen() && (cell.getState() == EXPLORED_FREE || cell.getMinesAround() > 0)) {
                 System.out.println("This cell was already explored!");
                 continue;

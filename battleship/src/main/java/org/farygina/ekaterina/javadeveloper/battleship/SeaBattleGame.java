@@ -2,7 +2,7 @@ package org.farygina.ekaterina.javadeveloper.battleship;
 
 import java.util.Scanner;
 
-public class SeaBattleGame {
+class SeaBattleGame {
     private final Board board1;
     private final Board board2;
     private final InputScanner scanner;
@@ -37,7 +37,7 @@ public class SeaBattleGame {
             System.out.printf("Enter the coordinates of the %s (%d cells):\n\n", type.getName(), type.getLength());
             result = null;
             while (result != AddShipResult.SUCCESS) {
-                String[] coordinates = scanner.readCoordinates();
+                var coordinates = scanner.readCoordinates();
                 result = isPlayer1 ? this.board1.addShip(type, coordinates[0], coordinates[1])
                         : this.board2.addShip(type, coordinates[0], coordinates[1]);
                 switch (result) {
@@ -53,7 +53,7 @@ public class SeaBattleGame {
     }
 
     private void shoot(boolean isPlayer1Turn) {
-        CellState state = CellState.FOG;
+        var state = CellState.FOG;
         System.out.println(isPlayer1Turn ? "Player 1, it's your turn:" : "Player 2, it's your turn:");
         while (state == CellState.FOG) {
             if (isPlayer1Turn) {
