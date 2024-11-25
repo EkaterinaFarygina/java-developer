@@ -1,4 +1,4 @@
-package org.farygina.ekaterina.javadeveloper.chuckNorrisCipherEncoder;
+package org.farygina.ekaterina.javadeveloper.chucknorris.encoder;
 
 public class ChuckNorrisCipherEncoder {
 
@@ -19,12 +19,13 @@ public class ChuckNorrisCipherEncoder {
         }
         var builder = new StringBuilder();
         var binary = convertTextToBinary(text);
-        while (!binary.isEmpty()) {
-            var current = binary.charAt(0) == ZERO ? ZERO : ONE;
+        int i = 0;
+        while (i < binary.length()) {
+            var current = binary.charAt(i) == ZERO ? ZERO : ONE;
             builder.append(current == ZERO ? "00 " : "0 ");
-            while (!binary.isEmpty() && binary.charAt(0) == current) {
+            while (i != binary.length() && binary.charAt(i) == current) {
                 builder.append(ZERO);
-                binary = binary.substring(1);
+                i++;
             }
             builder.append(SEPARATOR);
         }
@@ -38,22 +39,21 @@ public class ChuckNorrisCipherEncoder {
         if (parts.length % 2 == 1) {
             return "";
         }
-        var toAdd = ZERO;
-        for (int i = 0; i < parts.length; i++) {
-            if(i % 2 == 0) {
-                switch(parts[i]) {
-                    case "00" -> toAdd = ZERO;
-                    case "0" -> toAdd = ONE;
-                    default -> {
-                        return "";
-                    }
-                }
-            } else {
-                if(!parts[i].matches("0+")) {
+        for (int i = 0; i < parts.length; i += 2) {
+            String part1 = parts[i];
+            String part2 = parts[i + 1];
+            final char toAdd;
+            switch (part1) {
+                case "00" -> toAdd = ZERO;
+                case "0" -> toAdd = ONE;
+                default -> {
                     return "";
                 }
-                builder.append(String.valueOf(toAdd).repeat(parts[i].length()));
             }
+            if (!part2.matches("0+")) {
+                return "";
+            }
+            builder.append(String.valueOf(toAdd).repeat(part2.length()));
         }
         return builder.toString();
     }
@@ -67,9 +67,8 @@ public class ChuckNorrisCipherEncoder {
             return "";
         }
         var builder = new StringBuilder();
-        while(!binary.isEmpty()) {
-            builder.append((char) Integer.parseInt(binary.substring(0, 7), 2));
-            binary = binary.substring(7);
+        for (int i = 0; i < binary.length(); i += 7) {
+            builder.append((char) Integer.parseInt(binary.substring(i, i + 7), 2));
         }
         return builder.toString();
     }

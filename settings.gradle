@@ -1,5 +1,5 @@
 rootProject.name = 'java-developer'
 include 'battleship'
 include 'minesweeper'
-include 'chuckNorrisCipherEncoder'
+include 'chuck-norris-cipher-encoder'
 

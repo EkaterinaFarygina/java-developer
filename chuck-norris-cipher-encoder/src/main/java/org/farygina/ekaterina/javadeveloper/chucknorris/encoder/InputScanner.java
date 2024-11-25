@@ -1,4 +1,4 @@
-package org.farygina.ekaterina.javadeveloper.chuckNorrisCipherEncoder;
+package org.farygina.ekaterina.javadeveloper.chucknorris.encoder;
 
 import java.util.Scanner;
 

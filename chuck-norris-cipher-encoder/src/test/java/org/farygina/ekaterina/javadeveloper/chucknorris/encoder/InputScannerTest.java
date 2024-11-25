@@ -1,13 +1,10 @@
-package org.farygina.ekaterina.javadeveloper.chuckNorrisCipherEncoder;
+package org.farygina.ekaterina.javadeveloper.chucknorris.encoder;
 
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,9 +37,9 @@ class InputScannerTest {
             // Verify output
             String expectedOutput = """
                     Please input operation (encode/decode/exit):
-                    There is no '' operation\n
+                    There is no '' operation\\n
                     Please input operation (encode/decode/exit):
-                    There is no 'smile' operation\n
+                    There is no 'smile' operation\\n
                     Please input operation (encode/decode/exit):
                     Please input operation (encode/decode/exit):
                     Please input operation (encode/decode/exit):
